@@ -1,3 +1,10 @@
+unbound (1.5.8-1ubuntu1~bpo8+0+exo1) jessie; urgency=medium
+
+  * Backport to Jessie (from Ubuntu!).
+     + Don't pull dh-python, dh_python2 is in python package.
+
+ -- Vincent Bernat <bernat@debian.org>  Wed, 05 Jul 2017 17:28:11 +0200
+
 unbound (1.5.8-1ubuntu1) xenial; urgency=medium
 
   * Merge from Debian (LP: #1556308):
