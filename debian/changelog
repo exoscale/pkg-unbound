@@ -1,3 +1,9 @@
+unbound (1.6.7-1ubuntu2~xenial0+exo2) xenial; urgency=medium
+
+  * Patch to prevent confusing systemd during reload.
+
+ -- Vincent Bernat <bernat@debian.org>  Wed, 14 Mar 2018 13:25:11 +0100
+
 unbound (1.6.7-1ubuntu2~xenial0+exo1) xenial; urgency=medium
 
   * Backport for Xenial.
