@@ -1,6 +1,7 @@
 unbound (1.6.7-1ubuntu2~xenial0+exo1) xenial; urgency=medium
 
   * Backport for Xenial.
+     + Relax dependency on debhelper and add back dh-systemd dependency.
 
  -- Vincent Bernat <bernat@debian.org>  Wed, 14 Mar 2018 10:56:31 +0100
 
