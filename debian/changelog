@@ -1,6 +1,7 @@
 unbound (1.6.7-1ubuntu1~bpo8+0+exo1) jessie; urgency=medium
 
   * Backport to Jessie.
+     + Relax dependency on debhelper and add back dh-systemd dependency.
   * Patch to prevent confusing systemd during reload.
 
  -- Vincent Bernat <bernat@debian.org>  Wed, 14 Mar 2018 16:10:13 +0100
