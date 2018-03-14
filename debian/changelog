@@ -1,3 +1,9 @@
+unbound (1.6.7-1ubuntu2~xenial0+exo1) xenial; urgency=medium
+
+  * Backport for Xenial.
+
+ -- Vincent Bernat <bernat@debian.org>  Wed, 14 Mar 2018 10:56:31 +0100
+
 unbound (1.6.7-1ubuntu2) bionic; urgency=medium
 
   * debian/apparmor-profile: add capabilities to chown/chmod Unix
