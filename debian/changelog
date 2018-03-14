@@ -1,3 +1,9 @@
+unbound (1.6.7-1ubuntu1~bpo8+0+exo1) jessie; urgency=medium
+
+  * Backport to Jessie.
+
+ -- Vincent Bernat <bernat@debian.org>  Wed, 14 Mar 2018 16:10:13 +0100
+
 unbound (1.6.7-1ubuntu2) bionic; urgency=medium
 
   * debian/apparmor-profile: add capabilities to chown/chmod Unix
