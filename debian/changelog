@@ -1,3 +1,9 @@
+unbound (1.6.7-1ubuntu2~xenial0+exo3) xenial; urgency=medium
+
+  * Disable ipv6 listen interfaces.
+
+ -- Jessica Toscani <jessica@exoscale.ch>  Tue, 20 Mar 2018 15:44:00 +0100
+
 unbound (1.6.7-1ubuntu2~xenial0+exo2) xenial; urgency=medium
 
   * Patch to prevent confusing systemd during reload.
