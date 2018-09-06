@@ -1,3 +1,9 @@
+unbound (1.6.7-1ubuntu2.1~bpo8+0+exo1) jessie; urgency=medium
+
+  * Backport to Jessie.
+
+ -- Vincent Bernat <bernat@debian.org>  Thu, 06 Sep 2018 10:43:03 +0200
+
 unbound (1.6.7-1ubuntu2.1) bionic-security; urgency=medium
 
   * SECURITY UPDATE: vulnerability in the processing of wildcard
