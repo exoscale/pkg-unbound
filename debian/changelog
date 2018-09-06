@@ -1,3 +1,9 @@
+unbound (1.6.7-1ubuntu2.1~xenial0+exo1) xenial; urgency=medium
+
+  * Backport for Xenial.
+
+ -- Vincent Bernat <bernat@debian.org>  Thu, 06 Sep 2018 10:29:08 +0200
+
 unbound (1.6.7-1ubuntu2.1) bionic-security; urgency=medium
 
   * SECURITY UPDATE: vulnerability in the processing of wildcard
