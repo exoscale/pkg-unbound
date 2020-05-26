@@ -7,9 +7,11 @@ Uploaders:
 Build-Depends:
  autoconf,
  bison,
- debhelper (>= 10~),
+ debhelper,
  dh-apparmor <!pkg.unbound.libonly>,
+ dh-autoreconf,
  dh-python <!pkg.unbound.libonly>,
+ dh-systemd <!pkg.unbound.libonly>,
  dpkg-dev (>= 1.16.1~),
  flex,
  libbsd-dev (>= 0.8.1~) [!linux-any],
