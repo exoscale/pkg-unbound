@@ -1,57 +1,166 @@
-unbound (1.6.7-1ubuntu2.1+bionic0+exo1) bionic; urgency=medium
+unbound (1.10.1-1) unstable; urgency=high
 
-  * Forward-port to Bionic.
+  * New upstream version 1.10.1
+    - Fix CVE-2020-12662: Unbound can be tricked into amplifying an incoming
+      query into a large number of queries directed to a target.
+    - Fix CVE-2020-12663: Malformed answers from upstream name servers can be
+      used to make Unbound unresponsive.
 
- -- Vincent Bernat <bernat@debian.org>  Thu, 06 Sep 2018 12:25:08 +0200
+ -- Robert Edmonds <edmonds@debian.org>  Tue, 19 May 2020 11:36:53 -0400
 
-unbound (1.6.7-1ubuntu2.1) bionic-security; urgency=medium
+unbound (1.10.0-1) unstable; urgency=medium
 
-  * SECURITY UPDATE: vulnerability in the processing of wildcard
-    synthesized NSEC records (LP: #1773720)
-    - debian/patches/CVE-2017-15105.patch
-    - CVE-2017-15105
+  [ Robert Edmonds ]
+  * New upstream version 1.10.0
+  * Drop debian/patches/0002-Allow-use-of-libbsd-functions-with-configure-
+    option-.patch (applied upstream)
 
- -- Simon Deziel <simon@sdeziel.info>  Mon, 28 May 2018 02:38:19 +0000
+  [ Stuart Prescott ]
+  * Drop Python 2 module package (Closes: #938752)
 
-unbound (1.6.7-1ubuntu2+bionic0+exo2) bionic; urgency=medium
+ -- Robert Edmonds <edmonds@debian.org>  Sat, 18 Apr 2020 19:29:50 -0400
 
-  * Forward-port to Bionic.
-     + Remove Xenial-specific bits.
+unbound (1.9.6-2) unstable; urgency=medium
 
- -- Vincent Bernat <bernat@debian.org>  Wed, 02 May 2018 14:24:48 +0200
+  * debian/unbound.maintscript: Remove obsolete conffile
+    /etc/unbound/unbound.conf.d/qname-minimisation.conf (Closes: #950406)
 
-unbound (1.6.7-1ubuntu2~xenial0+exo2) xenial; urgency=medium
+ -- Robert Edmonds <edmonds@debian.org>  Sat, 01 Feb 2020 14:44:39 -0500
 
-  * Patch to prevent confusing systemd during reload.
+unbound (1.9.6-1) unstable; urgency=medium
 
- -- Vincent Bernat <bernat@debian.org>  Wed, 14 Mar 2018 13:25:11 +0100
+  [ Robert Edmonds ]
+  * New upstream version 1.9.6 (Closes: #948036)
+    - Fixes 'unbound crashes with "Assertion nread >= 0 failed in
+      evmap_io_del_"' (Closes: #930699)
+    - Fixes "unbound: Fails to answer TCP queries due to broken idle-timeout"
+      (Closes: #946421)
+  * debian/source/options: Remove 'single-debian-patch' option
+  * debian/unbound.service: Change ExecReload to send SIGHUP rather than
+    using unbound-control (Closes: #923314)
+  * Enable remote-control by default (Closes: #923314)
+  * Allow use of libbsd functions with configure option --with-libbsd
+  * Remove "qname-minimisation: yes" config file setting, since this is
+    now the default (Closes: #915056)
+  * debian/package-helper: No longer invoke unbound-anchor for root trust
+    anchor update (Closes: #910675)
+  * debian/control: Bump Standards-Version to 4.5.0 (no changes)
+  * debian/control: Remove build dependencies on autotools-dev, dh-
+    autoreconf
+  * debian/libunbound8.symbols: Add "* Build-Depends-Package: libunbound-
+    dev"
+  * Rename debian/NEWS.Debian -> debian/NEWS
 
-unbound (1.6.7-1ubuntu2~xenial0+exo1) xenial; urgency=medium
+  [ Matthew Palmer ]
+  * Fix insecure use of start-stop-daemon --pidfile (Closes: #941573)
 
-  * Backport for Xenial.
+  [ Simon Deziel ]
+  * Install Apparmor profile prior to service startup (Closes: #919511)
 
- -- Vincent Bernat <bernat@debian.org>  Wed, 14 Mar 2018 10:56:31 +0100
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Drop use of autotools-dev debhelper.
+  * Bump debhelper from old 9 to 10.
+  * Set field Upstream-Name in debian/copyright.
 
-unbound (1.6.7-1ubuntu2) bionic; urgency=medium
+ -- Robert Edmonds <edmonds@debian.org>  Sun, 26 Jan 2020 22:45:45 -0500
 
-  * debian/apparmor-profile: add capabilities to chown/chmod Unix
-    control socket and allow reading /var/lib/sss/mc/initgroups
-    (Closes: #891705, LP: #1749931)
+unbound (1.9.4-2) unstable; urgency=medium
 
- -- Simon Deziel <simon@sdeziel.info>  Tue, 27 Feb 2018 21:31:49 -0500
+  * Cherry-pick upstream commit ec021e0d, "fix build with nettle-3.5"
+    (Closes: #941041)
 
-unbound (1.6.7-1ubuntu1) bionic; urgency=medium
+ -- Robert Edmonds <edmonds@debian.org>  Sat, 26 Oct 2019 08:00:58 -0400
 
-  * debian/apparmor: update to allow writing to /run/systemd/notify
-    (Closes: #867186, LP: #1723900)
+unbound (1.9.4-1) unstable; urgency=high
 
- -- Jamie Strandboge <jamie@ubuntu.com>  Thu, 22 Feb 2018 19:35:23 +0000
+  * New upstream version 1.9.4
+    - Fix CVE-2019-16866: uninitialized memory access when parsing specially
+      crafted NOTIFY query.
 
-unbound (1.6.7-1build1) bionic; urgency=high
+ -- Robert Edmonds <edmonds@debian.org>  Fri, 04 Oct 2019 00:43:19 -0400
 
-  * No change rebuild against openssl1.1.
+unbound (1.9.3-1) unstable; urgency=medium
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 05 Feb 2018 23:29:28 +0000
+  * New upstream version 1.9.3
+
+ -- Robert Edmonds <edmonds@debian.org>  Tue, 27 Aug 2019 14:24:11 -0400
+
+unbound (1.9.3~rc1-1) experimental; urgency=medium
+
+  * New upstream version 1.9.3~rc1
+  * debian/control: Bump Standards-Version to 4.4.0 (no changes)
+
+ -- Robert Edmonds <edmonds@debian.org>  Sat, 17 Aug 2019 18:01:56 -0400
+
+unbound (1.9.0-2) unstable; urgency=medium
+
+  [ Simon Deziel ]
+  * Disable chroot'ing (Closes: #921538)
+
+ -- Robert Edmonds <edmonds@debian.org>  Sat, 09 Feb 2019 21:10:52 -0500
+
+unbound (1.9.0-1) unstable; urgency=medium
+
+  * New upstream version 1.9.0
+  * Team upload
+  * Include dpkg/default.mk instead of only buildflags.mk
+  * Update d/watch to reflect new download location and add signature check
+
+ -- Ondřej Surý <ondrej@debian.org>  Tue, 05 Feb 2019 09:49:04 +0000
+
+unbound (1.8.1-1) unstable; urgency=medium
+
+  * New upstream version 1.8.1
+
+ -- Robert Edmonds <edmonds@debian.org>  Thu, 08 Nov 2018 16:50:36 -0500
+
+unbound (1.8.0-1) unstable; urgency=medium
+
+  * New upstream version 1.8.0
+  * debian/: libunbound2.symbols → libunbound8.symbols
+  * debian/rules: libunbound2 → libunbound8
+  * debian/control: libunbound2 → libunbound8
+  * daemon/daemon.c: Fix systemd service manager state change notification
+
+ -- Robert Edmonds <edmonds@debian.org>  Sat, 15 Sep 2018 16:21:11 -0400
+
+unbound (1.7.3-1) unstable; urgency=medium
+
+  * New upstream version 1.7.3
+    - Don't count CNAME response types received during qname minimisation as
+      query restart. (Closes: #900800)
+
+ -- Robert Edmonds <edmonds@debian.org>  Thu, 21 Jun 2018 12:45:09 -0400
+
+unbound (1.7.2-1) unstable; urgency=medium
+
+  [ Robert Edmonds ]
+  * New upstream version 1.7.2
+  * debian/control: Update Maintainer field (Closes: #899758)
+
+  [ Vincent Bernat ]
+  * daemon/daemon.c: Fix reload hangs with systemd (Closes: #892914)
+
+ -- Robert Edmonds <edmonds@debian.org>  Wed, 20 Jun 2018 17:30:34 -0400
+
+unbound (1.7.1-1) unstable; urgency=medium
+
+  [ Robert Edmonds ]
+  * debian/control: Update Vcs-* links to use salsa.debian.org URLs
+  * New upstream version 1.7.1
+
+  [ Simon Deziel ]
+  * debian/apparmor-profile: Add capabilities to chown/chmod Unix control
+    socket (Closes: #891705)
+  * debian/apparmor-profile: Allow reading /var/lib/sss/mc/initgroups
+  * debian/apparmor-profile: Permit unbound to notify readiness to systemd
+    (Closes: #867186)
+  * debian/apparmor-profile: Let unbound r/w anywhere under
+    /var/lib/unbound (Closes: #882731)
+  * debian/apparmor-profile: Use attach_disconnected
+
+ -- Robert Edmonds <edmonds@debian.org>  Wed, 23 May 2018 15:41:54 -0400
 
 unbound (1.6.7-1) unstable; urgency=medium
 
@@ -633,4 +742,3 @@ unbound (1.0.0-1) unstable; urgency=low
   * Initial release; closes: #482277.
 
  -- Robert S. Edmonds <edmonds@debian.org>  Wed, 21 May 2008 14:13:28 -0400
-
