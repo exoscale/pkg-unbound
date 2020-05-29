@@ -18,6 +18,10 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/default.mk
 
+DISTRIBUTION = $(shell lsb_release -sc)
+PACKAGEVERSION = $(DEB_VERSION)~$(DISTRIBUTION)0
+
+
 clean:
 	dh_autoreconf_clean
 	dh clean
@@ -139,7 +143,7 @@ endif
 	dh_makeshlibs
 	dh_installdeb
 	dh_shlibdeps
-	dh_gencontrol
+	dh_gencontrol -- -v$(PACKAGEVERSION)
 	dh_md5sums
 	dh_builddeb
 
