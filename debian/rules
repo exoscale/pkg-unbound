@@ -19,7 +19,7 @@ DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/default.mk
 
 DISTRIBUTION = $(shell lsb_release -sc)
-PACKAGEVERSION = $(DEB_VERSION)~$(DISTRIBUTION)0
+PACKAGEVERSION = $(DEB_VERSION)~$(DISTRIBUTION)1
 
 
 clean:
