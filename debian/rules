@@ -1,6 +1,10 @@
 #!/usr/bin/make -f
 #export DH_VERBOSE=1
 
+include /usr/share/dpkg/pkg-info.mk
+export OS_CODENAME := $(shell lsb_release -sc)
+export EXOSCALE_VERSION := $(DEB_VERSION)~$(OS_CODENAME)
+
 include /usr/share/dpkg/architecture.mk
 
 ifneq ($(DEB_HOST_ARCH), amd64)
@@ -17,10 +21,6 @@ DOPACKAGES = $(shell dh_listpackages)
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/default.mk
-
-DISTRIBUTION = $(shell lsb_release -sc)
-PACKAGEVERSION = $(DEB_VERSION)~$(DISTRIBUTION)1
-
 
 clean:
 	dh_autoreconf_clean
@@ -143,7 +143,7 @@ endif
 	dh_makeshlibs
 	dh_installdeb
 	dh_shlibdeps
-	dh_gencontrol -- -v$(PACKAGEVERSION)
+	dh_gencontrol -- -v$(EXOSCALE_VERSION)
 	dh_md5sums
 	dh_builddeb
 
