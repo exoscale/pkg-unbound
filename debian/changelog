@@ -1,3 +1,10 @@
+unbound (1.10.1-1build1+exo2) UNRELEASED; urgency=low
+
+  * Backport from Ubuntu/Groovy to Ubuntu/Xenial
+    (Exoscale version bump to prevent conflict with test1 repository)
+
+ -- Cédric Dufour <cedric.dufour@exoscale.ch>  Mon, 17 Aug 2020 09:56:25 +0200
+
 unbound (1.10.1-1build1+exo1) UNRELEASED; urgency=low
 
   * Backport from Ubuntu/Groovy to Ubuntu/Xenial
